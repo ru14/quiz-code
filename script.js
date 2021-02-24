@@ -21,8 +21,8 @@
 
 
 
-//GIVEN I am taking a code quiz
-//WHEN I click the start button
+
+//code quiz click the start button
 //THEN a timer starts and I am presented with a question
 //WHEN I answer a question
 //THEN I am presented with another question
