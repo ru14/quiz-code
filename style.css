@@ -1,5 +1,5 @@
 body{
-    background-color: aliceblue;
+    background-color: grey;
 }
 .start-button,
 .info-box{
@@ -20,4 +20,23 @@ body{
     background: blue;
     cursor: pointer;
 
+}
+.info-box{
+    width: 540px;
+    background-color: aliceblue;
+    border-radius: 5px; 
+}
+.info-box .info-title
+{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    padding: o 35px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.info-box .infoList{
+padding: 15px 35px;
 }
