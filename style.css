@@ -1,6 +1,7 @@
 body{
     background-color: grey;
 }
+/* instruction box */
 .start-button,
 .info-box{
     position: absolute;
@@ -41,7 +42,7 @@ body{
 .info-box .infoList{
 padding: 15px 35px;
 }
-.controls .info-box{
+.info-box .controls{
     height: 60px;
     display: flex;
     justify-content: flex-end;
