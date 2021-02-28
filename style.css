@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: rgb(55, 142, 177);
 }
 
 
@@ -15,15 +15,15 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.start-button {
+.start-button button{
     font-size: 25px;
     font-weight: 500;
-    color: bisque;
+    color: rgb(55, 142, 177);
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
-    background: blue;
+    background: white;
     cursor: pointer;
 }
 
@@ -73,6 +73,7 @@ body {
 }
 
 .quizBox {
+    display: none;
     width: 550px;
     background-color: aliceblue;
     border-radius: 5px;
@@ -136,6 +137,18 @@ width: 100%;
 }
 
 
-.remain span p:first-child{
-    padding: 0px;
+footer .Next-btn{
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    border: 1px solid cornflowerblue;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+footer .Next-btn:hover{
+    background: rgb(82, 82, 175);
+
 }
