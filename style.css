@@ -130,7 +130,7 @@ width: 100%;
     display: flex;
     user-select: none;
 }
-footer .remain span p{
+.remain span p{
     font-weight: 500;
     padding: 0 5px;
 }
