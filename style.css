@@ -1,37 +1,41 @@
-body{
+body {
     background-color: grey;
 }
+
+
 /* instruction box */
+
 .start-button,
 .info-box,
-.quizBox{
+.quizBox {
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.start-button{
+
+.start-button {
     font-size: 25px;
     font-weight: 500;
-    color:bisque;
+    color: bisque;
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
     background: blue;
     cursor: pointer;
-
 }
-.info-box{
+
+.info-box {
     display: none;
     width: 540px;
     background-color: aliceblue;
-    border-radius: 5px; 
+    border-radius: 5px;
     padding-left: 5px;
 }
-.info-box .info-title
-{
+
+.info-box .info-title {
     height: 60px;
     width: 100%;
     border-bottom: 1px solid lightgray;
@@ -41,20 +45,23 @@ body{
     font-size: 20px;
     font-weight: 600;
 }
-.info-box .infoList{
-padding: 15px 35px;
+
+.info-box .infoList {
+    padding: 15px 35px;
 }
-.info-box .controls{
+
+.info-box .controls {
     height: 60px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 0 35px;
-border-top: 1px solid lightgray;
+    border-top: 1px solid lightgray;
 }
-.info-box .controls button{
-   font-size: 16px;
-font-weight: 500;
+
+.info-box .controls button {
+    font-size: 16px;
+    font-weight: 500;
     width: 100px;
     height: 40px;
     margin: 0 5px;
@@ -64,18 +71,71 @@ font-weight: 500;
     color: white;
     cursor: pointer;
 }
-.quizBox{
+
+.quizBox {
     width: 550px;
-    background-color: antiquewhite;
+    background-color: aliceblue;
     border-radius: 5px;
 }
 
-.quizBox,
-.top{
+.top {
+    position: relative;
+    z-index: 99;
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
     background-color: aliceblue;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.timer {
+    width: 145px;
+    height: 45px;
+    background-color: lightskyblue;
+    border: 1px solid cornflowerblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+.quizBox .box{
+    padding: 25px 30px 20px 30px;
+    background-color: aliceblue;
+
+}
+.btn-grid{
+    padding: 20px 0;
+display:block ;
+}
+footer{
+height: 60px;
+width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+
+}
+.remain span{
+    display: flex;
+    user-select: none;
+}
+footer .remain span p{
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+
+.remain span p:first-child{
+    padding: 0px;
 }
