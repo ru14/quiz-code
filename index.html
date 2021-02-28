@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,60 +8,77 @@
     <link rel="stylesheet" href="style.css">
     <title>Code Quiz</title>
 </head>
+
 <body>
     <header>
-        <h1>Code Quiz</h1>
-     <div class="start-button">
-         <button id="Start-btn">START</button>
+
+        <div class="start-button">
+            <button id="Start-btn">START</button>
         </div>
         <!--info do -->
         <div class="info-box">
             <div class="info-title">
                 <span>Some Rule of this Quiz </span>
             </div>
-<div class="infoList">
-    <div class="info">1. You will have only <span> 75 second</span> for all question.</div>
-    <div class="info">2. Once you select your answer you cant reselect.</div>
-    <div class="info">3. If your answer is incorrect THEN time is subtracted from the clock.</div>
-    <div class="info">4. all questions are answered or the timer reaches 0 THEN the game is over.</div>
-    </div>
-    <div class="controls">
-        
-        <button id="Next-btn">Continue</button>
-        <button id="quit-btn">Exit</button>
-    </div>
+            <div class="infoList">
+                <div class="info">1. You will have only <span> 75 second</span> for all question.</div>
+                <div class="info">2. Once you select your answer you cant reselect.</div>
+                <div class="info">3. If your answer is incorrect THEN time is subtracted from the clock.</div>
+                <div class="info">4. all questions are answered or the timer reaches 0 THEN the game is over.</div>
+            </div>
+            <div class="controls">
+
+                <button id="Next-btn">Continue</button>
+                <button id="quit-btn">Exit</button>
+            </div>
         </div>
-        <div>Timer</div>
     </header>
     <main>
-       
-        <div class="box">
-        <!--questions will appear here this suppose to hide-->
-        <div id="questions-box" class="hide">
-        <div id="question">Question?</div>
-        <div id="answer-button" class="btn-grid"><!--buttton for ans-->
-        <button class="ans">Answer1</button>
-        <button class="ans">Answer2</button>
-        <button class="ans" >Answer3</button>
-        <button class="ans">Answer4</button>
-        
-    </div>
-    </div>
-    
-    </div>
+        <!--clock -->
+        <div class="quizBox">
+            <div class="top">
+                <h1>Code Quiz</h1>
+                <div class="timer">
+                    <div class="time-text">Time left</div>
+                    <div class="timer-sec">75</div>
+                </div>
 
-        <!--wrong -->
+                <section>
+                    <!--quiz box-->
+                    <div class="box">
+                        <!--questions will appear here this suppose to hide-->
+                        <div id="questions-box" class="hide">
+                            <div id="question">Question?</div>
+                            <div id="answer-button" class="btn-grid">
+                                <!--buttton for ans-->
+                                <button class="ans">Answer1</button>
+                                <button class="ans">Answer2</button>
+                                <button class="ans">Answer3</button>
+                                <button class="ans">Answer4</button>
 
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer>
+                    <div class="remain">
+                        <span>
+                            <p>2</p>of<p>5</p>Questions
+                        </span>
+                        <button class="Next-btn">Next Que</button>
+                    </div>
+
+                    <!--need box for highscore-->
+
+                    <!--want to add note pad to it may be on button-->
+                    <!--question remaining-->
+
+                </footer>
+            </div>
     </main>
-    <aside>
-        <!--need box for highscore-->
-        <!--want to add note pad to it may be on button-->
-        <!--question remaining-->
-    </aside>
-    <footer>
-        created with brain wreck
-    </footer>
 
-    
+
 </body>
+
 </html>
