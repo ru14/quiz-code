@@ -3,7 +3,8 @@ body{
 }
 /* instruction box */
 .start-button,
-.info-box{
+.info-box,
+.quizBox{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -23,6 +24,7 @@ body{
 
 }
 .info-box{
+    display: none;
     width: 540px;
     background-color: aliceblue;
     border-radius: 5px; 
@@ -61,4 +63,19 @@ font-weight: 500;
     border-radius: 5px;
     color: white;
     cursor: pointer;
+}
+.quizBox{
+    width: 550px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+
+.quizBox,
+.top{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background-color: aliceblue;
 }
