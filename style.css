@@ -152,3 +152,10 @@ footer .Next-btn:hover{
     background: rgb(82, 82, 175);
 
 }
+.grade{
+background-color: aliceblue;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
