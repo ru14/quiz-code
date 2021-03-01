@@ -8,7 +8,8 @@ body {
 .start-button,
 .info-box,
 .quizBox,
-.grade{
+.grade,
+.grade-save{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -16,7 +17,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.start-button button{
+.start-button button {
     font-size: 25px;
     font-weight: 500;
     color: rgb(55, 142, 177);
@@ -25,7 +26,6 @@ body {
     border: none;
     border-radius: 5px;
     background: white;
-    
 }
 
 .info-box {
@@ -70,7 +70,6 @@ body {
     border: 1px solid blue;
     border-radius: 5px;
     color: white;
-    
 }
 
 .quizBox {
@@ -94,11 +93,11 @@ body {
 }
 
 h1,
-.grade .finish {
+.grade .finish,
+.name {
     font-size: 20px;
     font-weight: 600;
 }
-
 
 .timer {
     width: 145px;
@@ -111,37 +110,41 @@ h1,
     border-radius: 5px;
     padding: 0 8px;
 }
-.quizBox .box{
+
+.quizBox .box {
     padding: 25px 30px 20px 30px;
     background-color: aliceblue;
+}
 
-}
-.btn-grid{
+.btn-grid {
     padding: 20px 0;
-display:block ;
+    display: block;
 }
-footer{
-height: 60px;
-width: 100%;
+
+footer {
+    height: 60px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-
 }
-.remain span{
+
+.remain span {
     display: flex;
     user-select: none;
 }
+
 .remain span p,
 .grade span p{
     font-weight: 500;
     padding: 0 5px;
 }
 
-
 footer .Next-btn,
-.grade .store{
+.grade .store,
+.back-btn,
+.clear-btn{
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -152,27 +155,46 @@ footer .Next-btn,
     transition: all 0.3s ease;
 }
 footer .Next-btn:hover,
-.grade .store:hover{
+.grade .store:hover,
+.back-btn:hover,
+.clear-btn:hover {
     background: rgb(82, 82, 175);
+}
 
-}
-.grade{
+.grade {
     display: none;
-background: aliceblue;
-width: 450px;
-padding: 25px 30px;
-border-radius: 5px;
-text-align: center;
+    background: aliceblue;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    text-align: center;
 }
-.grade .icon{
+
+.grade .icon, 
+.grade-save .icon{
     font-size: 100px;
     color: goldenrod;
     margin-bottom: 10px;
 }
+
 .grade .highscore span,
-form{
-display: flex;
-justify-content: center;
-margin: 10px 0;
-font-size: 18px;
+form {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.grade-save {
+    display: none;
+    background: aliceblue;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+.name{
+    padding: 0 5px;
+    margin: 10px 0;
 }
