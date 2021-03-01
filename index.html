@@ -82,14 +82,12 @@
             </div>
             <div class="finish">Finshed</div>
             <div class="highscore">
-                <span>and sorry, you got only<p>3</p>out of <p>6</p></span>
-                <form action="/action_page.php">
-                    <label for="fname">Initial:</label><br>
+                <span>Your Score :<p>22</p></span>
+                <form method="get" id="nameform">
+                    <label for="fname">Enter Initial:</label><br>
                     <input type="text" id="fname" name="fname" value="Initial"><br>
-                    <input type="submit" value="Submit">
-                </form>
-                <button class="restart">replay quiz</button>
-                <button class="quit">quit</button>
+                    </form>
+                    <button class="store" type="submit" form="nameform" value="Submit">Submit</button>
             </div>
         </div>
     </main>

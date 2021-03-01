@@ -7,7 +7,8 @@ body {
 
 .start-button,
 .info-box,
-.quizBox {
+.quizBox,
+.grade{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,7 +25,7 @@ body {
     border: none;
     border-radius: 5px;
     background: white;
-    cursor: pointer;
+    
 }
 
 .info-box {
@@ -69,7 +70,7 @@ body {
     border: 1px solid blue;
     border-radius: 5px;
     color: white;
-    cursor: pointer;
+    
 }
 
 .quizBox {
@@ -92,7 +93,8 @@ body {
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1,
+.grade .finish {
     font-size: 20px;
     font-weight: 600;
 }
@@ -131,13 +133,15 @@ width: 100%;
     display: flex;
     user-select: none;
 }
-.remain span p{
+.remain span p,
+.grade span p{
     font-weight: 500;
     padding: 0 5px;
 }
 
 
-footer .Next-btn{
+footer .Next-btn,
+.grade .store{
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -145,17 +149,30 @@ footer .Next-btn{
     background-color: cornflowerblue;
     border-radius: 5px;
     border: 1px solid cornflowerblue;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
-footer .Next-btn:hover{
+footer .Next-btn:hover,
+.grade .store:hover{
     background: rgb(82, 82, 175);
 
 }
 .grade{
-background-color: aliceblue;
+    display: none;
+background: aliceblue;
+width: 450px;
+padding: 25px 30px;
+border-radius: 5px;
+text-align: center;
+}
+.grade .icon{
+    font-size: 100px;
+    color: goldenrod;
+    margin-bottom: 10px;
+}
+.grade .highscore span,
+form{
 display: flex;
 justify-content: center;
-align-items: center;
-flex-direction: column;
+margin: 10px 0;
+font-size: 18px;
 }
