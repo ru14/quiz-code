@@ -1,5 +1,22 @@
+/* to change background color if question is wrong */
+
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
 body {
-    background-color: rgb(55, 142, 177);
+    --hue: var(--hue-neutral);
+    background-color: hsl(var(--hue), 53%, 45%);
+}
+
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.wrong {
+    --hue: var(var(var(--hue-wrong)))
 }
 
 
@@ -9,7 +26,7 @@ body {
 .info-box,
 .quizBox,
 .grade,
-.grade-save{
+.grade-save {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -73,8 +90,9 @@ body {
 }
 
 .quizBox {
-    display: none;
+    /* display: none; */
     width: 550px;
+    max-width: 80%;
     background-color: aliceblue;
     border-radius: 5px;
 }
@@ -102,7 +120,7 @@ h1,
 .timer {
     width: 145px;
     height: 45px;
-    background-color: lightskyblue;
+    background-color:lightskyblue;
     border: 1px solid cornflowerblue;
     display: flex;
     align-items: center;
@@ -113,14 +131,29 @@ h1,
 
 .quizBox .box {
     padding: 25px 30px 20px 30px;
-    background-color: aliceblue;
+    background-color: hsl(208, 100%, 97%);
 }
-
+/* to change button color when ans is write or wrong  */
 .btn-grid {
     padding: 20px 0;
-    display: block;
+    display: grid;
+    }
+.btn-grid button{
+    margin: 5px 0;
+    --hue: var(--hue-neutral);
+    background-color: hsl(var(--hue), 100%,90%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
+}
+button.ans.correct{
+    --hue:var(--hue-correct);
 }
 
+button.ans.wrong {
+    --hue:var(--hue-wrong);
+}
+/* not  */
 footer {
     height: 60px;
     width: 100%;
@@ -136,7 +169,7 @@ footer {
 }
 
 .remain span p,
-.grade span p{
+.grade span p {
     font-weight: 500;
     padding: 0 5px;
 }
@@ -144,7 +177,7 @@ footer {
 footer .Next-btn,
 .grade .store,
 .back-btn,
-.clear-btn{
+.clear-btn {
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -154,6 +187,7 @@ footer .Next-btn,
     border: 1px solid cornflowerblue;
     transition: all 0.3s ease;
 }
+
 footer .Next-btn:hover,
 .grade .store:hover,
 .back-btn:hover,
@@ -170,8 +204,8 @@ footer .Next-btn:hover,
     text-align: center;
 }
 
-.grade .icon, 
-.grade-save .icon{
+.grade .icon,
+.grade-save .icon {
     font-size: 100px;
     color: goldenrod;
     margin-bottom: 10px;
@@ -192,9 +226,9 @@ form {
     padding: 25px 30px;
     border-radius: 5px;
     text-align: center;
-    
 }
-.name{
+
+.name {
     padding: 0 5px;
     margin: 10px 0;
 }

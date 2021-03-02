@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="style.css">
-  
+
     <title>Code Quiz</title>
 </head>
 
 <body>
     <header>
-
+        <a href="url">HIGHSCORE</a>
         <div class="start-button">
             <button id="Start-btn">START</button>
         </div>
@@ -47,14 +47,14 @@
             </div>
             <section>
                 <!--quiz box-->
-                <div class="box">
+                <div class ="box">
                     <!--questions will appear here this suppose to hide-->
                     <div id="questions-box" class="hide">
                         <div id="question">Question?</div>
                         <div id="answer-button" class="btn-grid">
                             <!--buttton for ans-->
-                            <button class="ans">Answer1</button>
-                            <button class="ans">Answer2</button>
+                            <button class="ans correct">Answer1</button>
+                            <button class="ans wrong">Answer2</button>
                             <button class="ans">Answer3</button>
                             <button class="ans">Answer4</button>
 
@@ -77,8 +77,8 @@
             </footer>
         </div>
         <div class="grade">
-           <div class="icon">
-            <i class="fas fa-award"></i>
+            <div class="icon">
+                <i class="fas fa-award"></i>
             </div>
             <div class="finish">Finshed</div>
             <div class="highscore">
@@ -86,12 +86,23 @@
                 <form method="get" id="nameform">
                     <label for="fname">Enter Initial:</label><br>
                     <input type="text" id="fname" name="fname" value="Initial"><br>
-                    </form>
-                    <button class="store" type="submit" form="nameform" value="Submit">Submit</button>
+                </form>
+                <button class="store" type="submit" form="nameform" value="Submit">Submit</button>
+            </div>
+        </div>
+        <div class="grade-save">
+            <div class="icon">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="name">HIGHSCORE</div>
+            <div class="buttons">
+                <button class="back-btn">Go Back</button>
+                <button class="clear-btn">Clear Score</button>
             </div>
         </div>
     </main>
     <!--need box for highscore & intials and you need to save it-->
+    <script src="script.js"></script>
 </body>
 
 </html>
