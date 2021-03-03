@@ -4,6 +4,9 @@ var exitBtn = document.getElementById("quit-btn");
 var continueBtn = document.getElementById("Next-btn");
 var quizBox = document.getElementById("quiz-Box");
 var box = document.getElementById("questions-box")
+//var shuffledQuestions, currentQuestionIndex
+//var ques = document.getElementById("question")
+//var answer = document.getElementById("answer-button")
 //code quiz click the start button i
 startBtn.onclick = () => {
     infoBox.classList.remove("hide");
@@ -21,58 +24,84 @@ continueBtn.onclick = () => {
     quizBox.classList.add("activeInfo");
     box.classList.remove("hide");
     box.classList.add("activeInfo");
+    //shuffledQuestions = question.sort(()=>Math.random()-.5),
+    //currentQuestionIndex=0
+    setNextquestion(0);
+}
+function setNextquestion(index) {
+    var selectedQuestion = questions[index];
+    var questionElem = document.getElementById("question");
+    questionElem.innerHTML = "<span>" + selectedQuestion.question + "</span>";//ques
+
+
+    var ansBtn1 = document.getElementById("ans1");
+    ansBtn1.innerHTML = selectedQuestion.answer[0].text;
+    ansBtn1.dataset.correct = selectedQuestion.answer[0].correct;
+    ansBtn1.addEventListener('click', selectAnswer);
+
+    var ansBtn2 = document.getElementById("ans2");
+    ansBtn2.innerHTML = selectedQuestion.answer[1].text;
+    ansBtn2.dataset.correct = selectedQuestion.answer[1].correct;
+    ansBtn2.addEventListener('click', selectAnswer);
+
+    var ansBtn3 = document.getElementById("ans3");
+    ansBtn3.innerHTML = selectedQuestion.answer[2].text;
+    ansBtn3.dataset.correct = selectedQuestion.answer[2].correct;
+    ansBtn3.addEventListener('click', selectAnswer);
+
+    var ansBtn4 = document.getElementById("ans4");
+    ansBtn4.innerHTML = selectedQuestion.answer[3].text;
+    ansBtn4.dataset.correct = selectedQuestion.answer[3].correct;
+    ansBtn4.addEventListener('click', selectAnswer);
 }
 
 //and timer will strart
+function selectAnswer() {
 
-
+}
 
 
 
 //select random question and ans wit start button
-let question = [
+let questions = [
     {
         no: 1,
         question: "How to create an unordered list (a list with the list items in bullets) in HTML?",
-        answer: "<ul>",
-        options: [
-            "<ul>",
-            "<ol>",
-            "<li>",
-            "<i></i>",
+        answer: [
+            { text: "ul", correct: true },
+            { text: "ol", correct: false },
+            { text: "li", correct: false },
+            { text: "i", correct: false },
         ]
     },
     {
         no: 2,
-        question: "The correct sequence of HTML tags for starting a webpage is -",
-        answer: "HTML, Head, Title, Body",
-        option: [
-            "Head, Title, HTML, body",
-            "HTML, Body, Title, Head",
-            "HTML, Head, Title, Body",
-            "Body, Head, Title, HTML",
+        question: "The correct sequence of HTML tags for starting a webpage is ?",
+        answer: [
+            { text: "Head, Title, HTML, body", correct: false },
+            { text: "HTML, Body, Title, Head", correct: false },
+            { text: "HTML, Head, Title, Body", correct: true },
+            { text: "Body, Head, Title, HTML", correct: false },
         ]
     },
     {
         no: 3,
         question: "If we want define style for an unique element, then which css selector will we use ?",
-        answer: "Id",
-        option: [
-            "Id",
-            "text",
-            "class",
-            "name",
+        answer: [
+            { text: "Id", correct: true },
+            { text: "text", correct: false },
+            { text: "class", correct: false },
+            { text: "name", correct: false },
         ]
     },
     {
         no: 4,
         question: "Why so JavaScript and Java have similar name?",
-        answer: "JavaScript's syntax is loosely based on Java's",
-        option: [
-            "JavaScript is a stripped-down version of Java",
-            "JavaScript's syntax is loosely based on Java's",
-            "They both originated on the island of Java",
-            "None of the above",
+        answer: [
+            { text: "JavaScript is a stripped-down version of Java", correct: false },
+            { text: "JavaScript's syntax is loosely based on Java's", correct: true },
+            { text: "They both originated on the island of Java", correct: false },
+            { text: "None of the above", correct: false },
         ]
     },
     {
@@ -81,24 +110,17 @@ let question = [
         question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
         answer: "The User's machine running a Web browser",
         option: [
-            "The User's machine running a Web browser",
-            "The Web server",
-            "A central machine deep within Netscape's corporate offices",
-            "None of the above",
+            { text: "The User's machine running a Web browser", correct: true },
+            { text: "The Web server", correct: false },
+            { text: "A central machine deep within Netscape's corporate offices", correct: false },
+            { text: "None of the above", correct: false },
         ]
     },
 
 ];
 //HEN a timer starts and I am presented with a question
-function startGame() {
 
-}
-function nextQuestion() {
 
-}
-function selectAnswer() {
-
-}
 
 
 
