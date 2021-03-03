@@ -1,3 +1,69 @@
+var startBtn = document.getElementById("Start-btn");
+var infoBox = document.getElementById("info-Box");
+var exitBtn = document.getElementById("quit-btn");
+var continueBtn = document.getElementById("Next-btn")
+//code quiz click the start button i
+startBtn.onclick=()=>{
+    infoBox.classList.remove("hide");
+    infoBox.classList.add("activeInfo");
+   }
+//exit info box need to be hidden
+exitBtn.onclick=()=>{
+    infoBox.classList.add("hide");
+}
+// continue quix box need to show and timer will strart
+continueBtn.onclick=()=>{
+
+}
+
+
+
+
+
+
+//select random question and ans wit start button
+//HEN a timer starts and I am presented with a question
+function startGame(){
+
+}
+function nextQuestion(){
+
+}
+function selectAnswer(){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //timer will be loop

@@ -33,6 +33,9 @@ body.wrong {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+.info-box.activeInfo{
+   display: show;
+}
 
 .start-button button {
     font-size: 25px;
@@ -45,8 +48,11 @@ body.wrong {
     background: white;
 }
 
-.info-box {
+.hide{
     display: none;
+}
+
+.info-box {
     width: 540px;
     background-color: aliceblue;
     border-radius: 5px;
@@ -90,7 +96,7 @@ body.wrong {
 }
 
 .quizBox {
-    /* display: none; */
+    display: none;
     width: 550px;
     max-width: 80%;
     background-color: aliceblue;
