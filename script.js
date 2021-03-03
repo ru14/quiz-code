@@ -3,10 +3,8 @@ var infoBox = document.getElementById("info-Box");
 var exitBtn = document.getElementById("quit-btn");
 var continueBtn = document.getElementById("Next-btn");
 var quizBox = document.getElementById("quiz-Box");
-var box = document.getElementById("questions-box")
-//var shuffledQuestions, currentQuestionIndex
-//var ques = document.getElementById("question")
-//var answer = document.getElementById("answer-button")
+var box = document.getElementById("questions-box");
+//var shuffledQuestions
 //code quiz click the start button i
 startBtn.onclick = () => {
     infoBox.classList.remove("hide");
@@ -27,11 +25,30 @@ continueBtn.onclick = () => {
     //shuffledQuestions = question.sort(()=>Math.random()-.5),
     //currentQuestionIndex=0
     setNextquestion(0);
+    queCounter(noCount);
+
 }
+// if next btn clicked next question selected
+//shuffledQuestions = questions.sort(()=>Math.random()-.5);
+queCount = 0;
+noCount= 1;
+var nextBtn = document.getElementById("Next-Que");
+nextBtn.onclick = () => {
+    if (queCount < questions.length - 1) {
+        queCount++;
+        noCount++;
+        setNextquestion(queCount);
+        queCounter(noCount);
+        // console.log(queCount);
+    } else {
+        console.log("Finished");
+    }
+}
+
 function setNextquestion(index) {
     var selectedQuestion = questions[index];
     var questionElem = document.getElementById("question");
-    questionElem.innerHTML = "<span>" + selectedQuestion.question + "</span>";//ques
+    questionElem.innerHTML = "<span><p>" + noCount +"." + "</p>" + selectedQuestion.question + "</span>";//ques
 
 
     var ansBtn1 = document.getElementById("ans1");
@@ -53,12 +70,27 @@ function setNextquestion(index) {
     ansBtn4.innerHTML = selectedQuestion.answer[3].text;
     ansBtn4.dataset.correct = selectedQuestion.answer[3].correct;
     ansBtn4.addEventListener('click', selectAnswer);
-}
 
-//and timer will strart
+
+}
 function selectAnswer() {
-
+    //     const selectedBtn =e.target;
+    //     const selectedBdy =e.target
+    //     const correct = selectedBtn.dataset.correct;
+    //    if (correct === "true"){
+    //     selectedBdy.classList.add("correct");
+    //        selectedBtn.classList.add("correct");}
+    //     else {
+    //         selectedBdy.classList.add("wrong");
+    //         selectedBtn.classList.add("wrong");  
 }
+function queCounter(index){
+var counter = document.getElementById("count");
+let queCountTag = "<span><p>" + index + "</p>of<p>" + questions.length + "</p>Questions</span>";
+counter.innerHTML = queCountTag;
+}
+//and timer will strart
+
 
 
 
@@ -108,8 +140,7 @@ let questions = [
 
         no: 5,
         question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
-        answer: "The User's machine running a Web browser",
-        option: [
+        answer: [
             { text: "The User's machine running a Web browser", correct: true },
             { text: "The Web server", correct: false },
             { text: "A central machine deep within Netscape's corporate offices", correct: false },
@@ -118,6 +149,7 @@ let questions = [
     },
 
 ];
+
 //HEN a timer starts and I am presented with a question
 
 
