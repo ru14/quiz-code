@@ -2,110 +2,103 @@ var startBtn = document.getElementById("Start-btn");
 var infoBox = document.getElementById("info-Box");
 var exitBtn = document.getElementById("quit-btn");
 var continueBtn = document.getElementById("Next-btn");
-var quizBox = document.getElementById("quiz-Box")
+var quizBox = document.getElementById("quiz-Box");
+var box = document.getElementById("questions-box")
 //code quiz click the start button i
-startBtn.onclick=()=>{
+startBtn.onclick = () => {
     infoBox.classList.remove("hide");
     infoBox.classList.add("activeInfo");
-   }
+}
 //exit info box need to be hidden
-exitBtn.onclick=()=>{
+exitBtn.onclick = () => {
     infoBox.classList.add("hide");
 }
 // continue quix box need to show and timer will strart
-continueBtn.onclick=()=>{
+continueBtn.onclick = () => {
     infoBox.classList.remove("activeInfo");
     infoBox.classList.add("hide");
     quizBox.classList.remove("hide");
     quizBox.classList.add("activeInfo");
+    box.classList.remove("hide");
+    box.classList.add("activeInfo");
 }
 
+//and timer will strart
 
 
 
 
 
 //select random question and ans wit start button
+let question = [
+    {
+        no: 1,
+        question: "How to create an unordered list (a list with the list items in bullets) in HTML?",
+        answer: "<ul>",
+        options: [
+            "<ul>",
+            "<ol>",
+            "<li>",
+            "<i></i>",
+        ]
+    },
+    {
+        no: 2,
+        question: "The correct sequence of HTML tags for starting a webpage is -",
+        answer: "HTML, Head, Title, Body",
+        option: [
+            "Head, Title, HTML, body",
+            "HTML, Body, Title, Head",
+            "HTML, Head, Title, Body",
+            "Body, Head, Title, HTML",
+        ]
+    },
+    {
+        no: 3,
+        question: "If we want define style for an unique element, then which css selector will we use ?",
+        answer: "Id",
+        option: [
+            "Id",
+            "text",
+            "class",
+            "name",
+        ]
+    },
+    {
+        no: 4,
+        question: "Why so JavaScript and Java have similar name?",
+        answer: "JavaScript's syntax is loosely based on Java's",
+        option: [
+            "JavaScript is a stripped-down version of Java",
+            "JavaScript's syntax is loosely based on Java's",
+            "They both originated on the island of Java",
+            "None of the above",
+        ]
+    },
+    {
+
+        no: 5,
+        question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
+        answer: "The User's machine running a Web browser",
+        option: [
+            "The User's machine running a Web browser",
+            "The Web server",
+            "A central machine deep within Netscape's corporate offices",
+            "None of the above",
+        ]
+    },
+
+];
 //HEN a timer starts and I am presented with a question
-function startGame(){
+function startGame() {
 
 }
-function nextQuestion(){
+function nextQuestion() {
 
 }
-function selectAnswer(){
+function selectAnswer() {
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//timer will be loop
-//1) How to create an unordered list (a list with the list items in bullets) in HTML?
-//ANSWER<ul>
-//<ol>
-//<li>
-//<i></i>
-
-//The correct sequence of HTML tags for starting a webpage is -
-//Head, Title, HTML, body
-//HTML, Body, Title, Head
-//HTML, Head, Title, Body
-//HTML, Head, Title, Body
-
-
-//	If we want define style for an unique element, then which css selector will we use ?
-//A. Id
-//B. text
-//C. class
-//D. name
-
-//1.  Why so JavaScript and Java have similar name?
-//A.  JavaScript is a stripped-down version of Java
-//B.  JavaScript's syntax is loosely based on Java's
-//C.  They both originated on the island of Java
-//D.  None of the above
-//Ans: B
-
-
-//2.  When a user views a page containing a JavaScript program, which machine actually executes the script?
-//A.  The User's machine running a Web browser
-//B.   The Web server
-//C.  A central machine deep within Netscape's corporate offices
-//D.  None of the above
-//Ans:  A
-
-
 
 
 

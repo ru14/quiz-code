@@ -33,8 +33,9 @@ body.wrong {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.info-box.quizBox.activeInfo{
-   display: show;
+
+.info-box .quizBox .questionbox .activeInfo {
+    display: show;
 }
 
 .start-button button {
@@ -48,7 +49,7 @@ body.wrong {
     background: white;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
@@ -125,7 +126,7 @@ h1,
 .timer {
     width: 145px;
     height: 45px;
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     border: 1px solid cornflowerblue;
     display: flex;
     align-items: center;
@@ -138,27 +139,35 @@ h1,
     padding: 25px 30px 20px 30px;
     background-color: hsl(208, 100%, 97%);
 }
+
+
 /* to change button color when ans is write or wrong  */
+
 .btn-grid {
     padding: 20px 0;
     display: grid;
-    }
-.btn-grid button{
+}
+
+.btn-grid button {
     margin: 5px 0;
     --hue: var(--hue-neutral);
-    background-color: hsl(var(--hue), 100%,90%);
+    background-color: hsl(var(--hue), 100%, 90%);
     border-radius: 5px;
     padding: 5px 10px;
     outline: none;
 }
-button.ans.correct{
-    --hue:var(--hue-correct);
+
+button.ans.correct {
+    --hue: var(--hue-correct);
 }
 
 button.ans.wrong {
-    --hue:var(--hue-wrong);
+    --hue: var(--hue-wrong);
 }
+
+
 /* not  */
+
 footer {
     height: 60px;
     width: 100%;
