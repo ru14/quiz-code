@@ -33,7 +33,7 @@ body.wrong {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.info-box.activeInfo{
+.info-box.quizBox.activeInfo{
    display: show;
 }
 
@@ -96,7 +96,6 @@ body.wrong {
 }
 
 .quizBox {
-    display: none;
     width: 550px;
     max-width: 80%;
     background-color: aliceblue;

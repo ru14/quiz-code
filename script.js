@@ -1,7 +1,8 @@
 var startBtn = document.getElementById("Start-btn");
 var infoBox = document.getElementById("info-Box");
 var exitBtn = document.getElementById("quit-btn");
-var continueBtn = document.getElementById("Next-btn")
+var continueBtn = document.getElementById("Next-btn");
+var quizBox = document.getElementById("quiz-Box")
 //code quiz click the start button i
 startBtn.onclick=()=>{
     infoBox.classList.remove("hide");
@@ -13,7 +14,10 @@ exitBtn.onclick=()=>{
 }
 // continue quix box need to show and timer will strart
 continueBtn.onclick=()=>{
-
+    infoBox.classList.remove("activeInfo");
+    infoBox.classList.add("hide");
+    quizBox.classList.remove("hide");
+    quizBox.classList.add("activeInfo");
 }
 
 
