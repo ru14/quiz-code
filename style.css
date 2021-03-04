@@ -134,6 +134,15 @@ h1,
     border-radius: 5px;
     padding: 0 8px;
 }
+.timer-sec{
+   background-color: rgb(49, 47, 47); 
+   height: 30px;
+   width: 45px;
+   text-align: center;
+   line-height: 30px;
+   border-radius: 5px;
+   color: aliceblue;
+}
 
 .quizBox .box {
     padding: 25px 30px 20px 30px;

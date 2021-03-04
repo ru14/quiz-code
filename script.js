@@ -7,6 +7,11 @@ var exitBtn = document.getElementById("quit-btn");
 var continueBtn = document.getElementById("Next-btn");
 var quizBox = document.getElementById("quiz-Box");
 var box = document.getElementById("questions-box");
+var timeCount = document.getElementById("timer");
+var resultBox = document.getElementById("grade");
+var restartBtn = document.getElementById("restart");
+var saveScoreBtn = document.getElementById("saveScore");
+var clearScoreBtn = document.getElementById("clearScore");
 //var shuffledQuestions
 //code quiz click the start button i
 startBtn.onclick = () => {
@@ -27,18 +32,22 @@ continueBtn.onclick = () => {
     box.classList.add("activeInfo");
     //shuffledQuestions = question.sort(()=>Math.random()-.5),
     //currentQuestionIndex=0
+    startTimer(counter);
     setNextquestion(0);
     queCounter(noCount);
 
 }
 // if next btn clicked next question selected
 //shuffledQuestions = questions.sort(()=>Math.random()-.5);
-queCount = 0;
-noCount = 1;
+ let queCount = 0;
+ let noCount = 1;
+ let counter = 75;
+
 var nextBtn = document.getElementById("Next-Que");
 nextBtn.onclick = () => {
     // reset view
     resetView();
+    selectedBtn = null;
 
     if (queCount < questions.length - 1) {
         queCount++;
@@ -57,7 +66,7 @@ function resetView() {
     bodyElement.classList.remove("wrong");
     selectedBtn.classList.remove("wrong");
 }
-
+//random question selection
 function setNextquestion(index) {
     var selectedQuestion = questions[index];
     var questionElem = document.getElementById("question");
@@ -90,10 +99,12 @@ function setNextquestion(index) {
 
 
 function selectAnswer(e) {
+    // once seected button stop all selection
+    if (selectedBtn != null) {
+        return;
+    }
     selectedBtn = e.target;
-    //const bodyElement = body = document.getElementsByTagName('body')[0];
     const correct = selectedBtn.dataset.correct;
-
     if (correct === "true") {
         bodyElement.classList.add("correct");
         selectedBtn.classList.add("correct");
@@ -101,17 +112,33 @@ function selectAnswer(e) {
     else {
         bodyElement.classList.add("wrong");
         selectedBtn.classList.add("wrong");
+        counter = counter-15;
     }
+    //display correct ans
 };
-// once seected button stop more selection
 
+function startTimer(){
+    timeCount.innerHTML="<span>" + counter + "</span>";
+    setInterval(timer, 1000);
+    function timer(){        
+        timeCount.textContent = counter;   
+        counter--;
+        if(counter <= 0){
+            clearInterval(counter);
+            timeCount.textContent = 0;
+            
+        }
+    }   
+};
+
+//and timer will strart it need to detect 15 sec for wrong question 
 function queCounter(index) {
     var counter = document.getElementById("count");
     let queCountTag = "<span><p>" + index + "</p>of<p>" + questions.length + "</p>Questions</span>";
     counter.innerHTML = queCountTag;
 };
 
-//and timer will strart
+
 
 
 
@@ -190,7 +217,7 @@ let questions = [
 //WHEN I answer a question, you can not reselect
 //THEN I am presented with another question
 //WHEN I answer a question incorrectly
-//THEN time is subtracted from the clock
+//THEN counter is subtracted from the clock
 //WHEN all questions are answered or the timer reaches 0
 //THEN the game is over
 //WHEN the game is over
