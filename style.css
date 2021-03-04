@@ -16,7 +16,7 @@ body.correct {
 }
 
 body.wrong {
-    --hue: var(var(var(--hue-wrong)))
+    --hue:var(--hue-wrong);
 }
 
 

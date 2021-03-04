@@ -1,3 +1,6 @@
+const bodyElement = body = document.getElementsByTagName('body')[0];
+var selectedBtn = null;
+
 var startBtn = document.getElementById("Start-btn");
 var infoBox = document.getElementById("info-Box");
 var exitBtn = document.getElementById("quit-btn");
@@ -31,9 +34,12 @@ continueBtn.onclick = () => {
 // if next btn clicked next question selected
 //shuffledQuestions = questions.sort(()=>Math.random()-.5);
 queCount = 0;
-noCount= 1;
+noCount = 1;
 var nextBtn = document.getElementById("Next-Que");
 nextBtn.onclick = () => {
+    // reset view
+    resetView();
+
     if (queCount < questions.length - 1) {
         queCount++;
         noCount++;
@@ -45,10 +51,17 @@ nextBtn.onclick = () => {
     }
 }
 
+function resetView() {
+    bodyElement.classList.remove("correct");
+    selectedBtn.classList.remove("correct");
+    bodyElement.classList.remove("wrong");
+    selectedBtn.classList.remove("wrong");
+}
+
 function setNextquestion(index) {
     var selectedQuestion = questions[index];
     var questionElem = document.getElementById("question");
-    questionElem.innerHTML = "<span><p>" + noCount +"." + "</p>" + selectedQuestion.question + "</span>";//ques
+    questionElem.innerHTML = "<span><p>" + noCount + "." + "</p>" + selectedQuestion.question + "</span>";//ques
 
 
     var ansBtn1 = document.getElementById("ans1");
@@ -73,22 +86,31 @@ function setNextquestion(index) {
 
 
 }
-function selectAnswer() {
-    //     const selectedBtn =e.target;
-    //     const selectedBdy =e.target
-    //     const correct = selectedBtn.dataset.correct;
-    //    if (correct === "true"){
-    //     selectedBdy.classList.add("correct");
-    //        selectedBtn.classList.add("correct");}
-    //     else {
-    //         selectedBdy.classList.add("wrong");
-    //         selectedBtn.classList.add("wrong");  
-}
-function queCounter(index){
-var counter = document.getElementById("count");
-let queCountTag = "<span><p>" + index + "</p>of<p>" + questions.length + "</p>Questions</span>";
-counter.innerHTML = queCountTag;
-}
+
+
+
+function selectAnswer(e) {
+    selectedBtn = e.target;
+    //const bodyElement = body = document.getElementsByTagName('body')[0];
+    const correct = selectedBtn.dataset.correct;
+
+    if (correct === "true") {
+        bodyElement.classList.add("correct");
+        selectedBtn.classList.add("correct");
+    }
+    else {
+        bodyElement.classList.add("wrong");
+        selectedBtn.classList.add("wrong");
+    }
+};
+// once seected button stop more selection
+
+function queCounter(index) {
+    var counter = document.getElementById("count");
+    let queCountTag = "<span><p>" + index + "</p>of<p>" + questions.length + "</p>Questions</span>";
+    counter.innerHTML = queCountTag;
+};
+
 //and timer will strart
 
 
@@ -97,7 +119,6 @@ counter.innerHTML = queCountTag;
 //select random question and ans wit start button
 let questions = [
     {
-        no: 1,
         question: "How to create an unordered list (a list with the list items in bullets) in HTML?",
         answer: [
             { text: "ul", correct: true },
@@ -107,7 +128,6 @@ let questions = [
         ]
     },
     {
-        no: 2,
         question: "The correct sequence of HTML tags for starting a webpage is ?",
         answer: [
             { text: "Head, Title, HTML, body", correct: false },
@@ -117,7 +137,6 @@ let questions = [
         ]
     },
     {
-        no: 3,
         question: "If we want define style for an unique element, then which css selector will we use ?",
         answer: [
             { text: "Id", correct: true },
@@ -127,7 +146,6 @@ let questions = [
         ]
     },
     {
-        no: 4,
         question: "Why so JavaScript and Java have similar name?",
         answer: [
             { text: "JavaScript is a stripped-down version of Java", correct: false },
@@ -138,7 +156,6 @@ let questions = [
     },
     {
 
-        no: 5,
         question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
         answer: [
             { text: "The User's machine running a Web browser", correct: true },
