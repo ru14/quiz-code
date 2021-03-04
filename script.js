@@ -8,7 +8,7 @@ var continueBtn = document.getElementById("Next-btn");
 var quizBox = document.getElementById("quiz-Box");
 var box = document.getElementById("questions-box");
 var timeCount = document.getElementById("timer");
-var resultBox = document.getElementById("grade");
+var resultBox = document.getElementById("grades");
 var restartBtn = document.getElementById("restart");
 var saveScoreBtn = document.getElementById("saveScore");
 var clearScoreBtn = document.getElementById("clearScore");
@@ -41,7 +41,7 @@ continueBtn.onclick = () => {
 //shuffledQuestions = questions.sort(()=>Math.random()-.5);
  let queCount = 0;
  let noCount = 1;
- let counter = 75;
+ let counter = 5;
 
 var nextBtn = document.getElementById("Next-Que");
 nextBtn.onclick = () => {
@@ -57,6 +57,7 @@ nextBtn.onclick = () => {
         // console.log(queCount);
     } else {
         console.log("Finished");
+        
     }
 }
 
@@ -103,6 +104,9 @@ function selectAnswer(e) {
     if (selectedBtn != null) {
         return;
     }
+    if (counter <= 0){
+        return;
+    }
     selectedBtn = e.target;
     const correct = selectedBtn.dataset.correct;
     if (correct === "true") {
@@ -126,6 +130,12 @@ function startTimer(){
         if(counter <= 0){
             clearInterval(counter);
             timeCount.textContent = 0;
+            nextBtn.classList.add("hide"); 
+            setTimeout(()=>{
+                resultBox.classList.remove("hide");
+                resultBox.classList.add("activeInfo");
+                quizBox.classList.add("hide");
+            },2000);
             
         }
     }   

@@ -52,6 +52,9 @@ body.wrong {
 .hide {
     display: none;
 }
+.block{
+    display:block;
+}
 
 .info-box {
     width: 540px;
@@ -212,6 +215,8 @@ footer .Next-btn,
     transition: all 0.3s ease;
 }
 
+
+
 footer .Next-btn:hover,
 .grade .store:hover,
 .back-btn:hover,
@@ -219,8 +224,7 @@ footer .Next-btn:hover,
     background: rgb(82, 82, 175);
 }
 
-.grade {
-    display: none;
+.grade {    
     background: aliceblue;
     width: 450px;
     padding: 25px 30px;
