@@ -10,13 +10,16 @@ var box = document.getElementById("questions-box");
 var timeCount = document.getElementById("timer");
 var resultBox = document.getElementById("grades");
 var restartBtn = document.getElementById("restart");
-
 var clearScoreBtn = document.getElementById("clearScore");
+var toHighscoreBtn = document.getElementById("highscoreBtn");
+
+
 //var shuffledQuestions
 //code quiz click the start button i
 startBtn.onclick = () => {
     infoBox.classList.remove("hide");
     infoBox.classList.add("activeInfo");
+    toHighscoreBtn.classList.add("hide");
 }
 //exit info box need to be hidden
 exitBtn.onclick = () => {
@@ -58,7 +61,7 @@ nextBtn.onclick = () => {
         // console.log(queCount);
     } else {
         console.log("Finished");
-
+        counter = 0;
     }
 }
 
@@ -101,19 +104,15 @@ function setNextquestion(index) {
 
 
 function selectAnswer(e) {
-
     // once seected button stop all selection
-
     if (selectedBtn != null) {
         return;
     }
+
     if (counter <= 0) {
         return;
     }
-    if (noCount >= 6){
-        counter = 0;
-return;
-    }
+
     selectedBtn = e.target;
     const correct = selectedBtn.dataset.correct;
     if (correct === "true") {
@@ -128,8 +127,6 @@ return;
         selectedBtn.classList.add("wrong");
         counter = counter - 15;
     }
-
-    //display correct ans
 };
 //and timer will strart it need to detect 15 sec for wrong question 
 function startTimer() {
@@ -190,7 +187,9 @@ function loadHighScore() {
     // activate high score view 
     const highScoreViewElement = document.getElementById("highScoresContainer");
     highScoreViewElement.classList.add("activeInfo");
+    bodyElement.classList.add("page");
     highScoreViewElement.classList.remove("hide");
+   
 
     // populate high scores    
     const htmlElement = document.getElementById("highScores");
@@ -204,6 +203,19 @@ function loadHighScore() {
 
     htmlElement.innerHTML = innerHtmlContent;
 }
+
+restartBtn.addEventListener("click", () =>{
+    location.reload();
+});
+
+clearScoreBtn.addEventListener("click", ()=>{
+    localStorage.clear();
+    loadHighScore();
+}); 
+toHighscoreBtn.addEventListener("click", ()=>{
+    localStorage.clear();
+    loadHighScore();
+}); 
 
 //select  question and ans wit start button
 let questions = [

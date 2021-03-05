@@ -18,7 +18,10 @@ body.correct {
 body.wrong {
     --hue:var(--hue-wrong);
 }
-
+body.page{
+    background-color: hsl(208, 100%, 97%);
+   
+}
 
 /* instruction box */
 
@@ -42,7 +45,7 @@ body.wrong {
 .start-button button {
     font-size: 25px;
     font-weight: 500;
-    color: rgb(55, 142, 177);
+    color: hsl(197, 53%, 45%);
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -260,4 +263,11 @@ form {
 .name {
     padding: 0 5px;
     margin: 10px 0;
+}
+.high-scores-contianer{
+    width: 100%;
+    height: 100%;
+    background-color: hsl(208, 100%, 97%);
+ text-align: center;
+ 
 }
