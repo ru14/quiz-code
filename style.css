@@ -26,7 +26,8 @@ body.wrong {
 .info-box,
 .quizBox,
 .grade,
-.grade-save {
+.grade-save
+.high-scores-contianer {
     position: absolute;
     top: 50%;
     left: 50%;

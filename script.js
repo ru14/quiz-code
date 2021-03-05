@@ -10,7 +10,7 @@ var box = document.getElementById("questions-box");
 var timeCount = document.getElementById("timer");
 var resultBox = document.getElementById("grades");
 var restartBtn = document.getElementById("restart");
-var saveScoreBtn = document.getElementById("saveScore");
+
 var clearScoreBtn = document.getElementById("clearScore");
 //var shuffledQuestions
 //code quiz click the start button i
@@ -101,7 +101,7 @@ function setNextquestion(index) {
 
 
 function selectAnswer(e) {
-    
+
     // once seected button stop all selection
 
     if (selectedBtn != null) {
@@ -110,32 +110,36 @@ function selectAnswer(e) {
     if (counter <= 0) {
         return;
     }
+    if (noCount >= 6){
+        counter = 0;
+return;
+    }
     selectedBtn = e.target;
     const correct = selectedBtn.dataset.correct;
     if (correct === "true") {
         bodyElement.classList.add("correct");
         selectedBtn.classList.add("correct");
         userScore += 10;
-        console.log(userScore);        
-        
+        console.log(userScore);
+
     }
     else {
         bodyElement.classList.add("wrong");
         selectedBtn.classList.add("wrong");
-        counter = counter - 15;        
+        counter = counter - 15;
     }
-    
+
     //display correct ans
 };
 //and timer will strart it need to detect 15 sec for wrong question 
 function startTimer() {
     timeCount.innerHTML = "<span>" + counter + "</span>";
-    setInterval(timer, 1000);
+    var timerHandle = setInterval(timer, 1000);
     function timer() {
         timeCount.textContent = counter;
         counter--;
         if (counter <= 0) {
-            clearInterval(counter);
+            clearInterval(timerHandle);
             timeCount.textContent = 0;
             nextBtn.classList.add("hide");
             setTimeout(() => {
@@ -156,31 +160,50 @@ function queCounter(index) {
     let queCountTag = "<span><p>" + index + "</p>of<p>" + questions.length + "</p>Questions</span>";
     counter.innerHTML = queCountTag;
 };
-var submitButton = document.getElementById("store")
-submitButton.addEventListener("click", function(event) {
-    resultBox.classList.add("hide");
-    startBtn.classList.add("hide")
-    event.preventDefault();
-    
-    var studentGrade = {
-      student: student.value,
-      score: userScore.value.trim()};
-      
 
-      localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
-      renderMessage();
+var submitButton = document.getElementById("submit-score");
+
+submitButton.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Update high score
+    if (localStorage.getItem(student.value) === null) {
+        localStorage.setItem(student.value, userScore);
+    }
+    else {
+        var currentHighScore = parseInt(localStorage.getItem(student.value));
+        if (currentHighScore < userScore) {
+            localStorage.setItem(student.value, userScore);
+        }
+    }
+
+    loadHighScore();
+});
+
+function loadHighScore() {
+    // load high score view; hide other views
+    resultBox.classList.add("hide");
+
+    const startButtonElement = document.getElementById("Start-btn");
+    startBtn.classList.add("hide");
+    
+    // activate high score view 
+    const highScoreViewElement = document.getElementById("highScoresContainer");
+    highScoreViewElement.classList.add("activeInfo");
+    highScoreViewElement.classList.remove("hide");
+
+    // populate high scores    
+    const htmlElement = document.getElementById("highScores");
+
+    var innerHtmlContent = "";
+    Object.keys(localStorage).forEach(item => {
+        var element = "<p>" + item + ": " + localStorage.getItem(item) + "</p>";
+        console.log(element);
+        innerHtmlContent = innerHtmlContent + element;
     });
 
-    function renderMessage() {
-        var lastScore = JSON.parse(localStorage.getItem("studentGrade"));
-        if (lastScore !== null) {
-          document.querySelector(".message").textContent = lastScore.student + 
-          " received a/an " + lastScore.grade
-        }
-      }
-      
-
-
+    htmlElement.innerHTML = innerHtmlContent;
+}
 
 //select  question and ans wit start button
 let questions = [
