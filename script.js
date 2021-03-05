@@ -39,9 +39,10 @@ continueBtn.onclick = () => {
 }
 // if next btn clicked next question selected
 //shuffledQuestions = questions.sort(()=>Math.random()-.5);
- let queCount = 0;
- let noCount = 1;
- let counter = 5;
+let queCount = 0;
+let noCount = 1;
+let counter = 75;
+let userScore = 0;
 
 var nextBtn = document.getElementById("Next-Que");
 nextBtn.onclick = () => {
@@ -57,7 +58,7 @@ nextBtn.onclick = () => {
         // console.log(queCount);
     } else {
         console.log("Finished");
-        
+
     }
 }
 
@@ -100,11 +101,13 @@ function setNextquestion(index) {
 
 
 function selectAnswer(e) {
+    
     // once seected button stop all selection
+
     if (selectedBtn != null) {
         return;
     }
-    if (counter <= 0){
+    if (counter <= 0) {
         return;
     }
     selectedBtn = e.target;
@@ -112,48 +115,74 @@ function selectAnswer(e) {
     if (correct === "true") {
         bodyElement.classList.add("correct");
         selectedBtn.classList.add("correct");
+        userScore += 10;
+        console.log(userScore);        
+        
     }
     else {
         bodyElement.classList.add("wrong");
         selectedBtn.classList.add("wrong");
-        counter = counter-15;
+        counter = counter - 15;        
     }
+    
     //display correct ans
 };
-
-function startTimer(){
-    timeCount.innerHTML="<span>" + counter + "</span>";
+//and timer will strart it need to detect 15 sec for wrong question 
+function startTimer() {
+    timeCount.innerHTML = "<span>" + counter + "</span>";
     setInterval(timer, 1000);
-    function timer(){        
-        timeCount.textContent = counter;   
+    function timer() {
+        timeCount.textContent = counter;
         counter--;
-        if(counter <= 0){
+        if (counter <= 0) {
             clearInterval(counter);
             timeCount.textContent = 0;
-            nextBtn.classList.add("hide"); 
-            setTimeout(()=>{
+            nextBtn.classList.add("hide");
+            setTimeout(() => {
                 resultBox.classList.remove("hide");
                 resultBox.classList.add("activeInfo");
                 quizBox.classList.add("hide");
-            },2000);
-            
-        }
-    }   
-};
+                var scoreText = document.getElementById("score-text");
+                scoreText.innerHTML = userScore;
+            }, 2000);
 
-//and timer will strart it need to detect 15 sec for wrong question 
+        }
+    }
+};
+var student = document.getElementById("fname")
+
 function queCounter(index) {
     var counter = document.getElementById("count");
     let queCountTag = "<span><p>" + index + "</p>of<p>" + questions.length + "</p>Questions</span>";
     counter.innerHTML = queCountTag;
 };
+var submitButton = document.getElementById("store")
+submitButton.addEventListener("click", function(event) {
+    resultBox.classList.add("hide");
+    startBtn.classList.add("hide")
+    event.preventDefault();
+    
+    var studentGrade = {
+      student: student.value,
+      score: userScore.value.trim()};
+      
+
+      localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+      renderMessage();
+    });
+
+    function renderMessage() {
+        var lastScore = JSON.parse(localStorage.getItem("studentGrade"));
+        if (lastScore !== null) {
+          document.querySelector(".message").textContent = lastScore.student + 
+          " received a/an " + lastScore.grade
+        }
+      }
+      
 
 
 
-
-
-
-//select random question and ans wit start button
+//select  question and ans wit start button
 let questions = [
     {
         question: "How to create an unordered list (a list with the list items in bullets) in HTML?",

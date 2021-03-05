@@ -81,12 +81,22 @@
             </div>
             <div class="finish">Finshed</div>
             <div class="highscore">
-                <span>Your Score :<p>22</p></span>
-                <form method="get" id="nameform">
-                    <label for="fname">Enter Initial:</label><br>
-                    <input type="text" id="fname" name="fname" value="Initial"><br>
+                <form>
+                    <ul>
+                        <li>
+                            <span>
+                                Your Score :<p id="score-text">0</p>
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <label>Enter Initial:</label><br>
+                            <input type="text" id="fname" name="fname" value="Initial"><br>
+                        </li>
+                    </ul>
                 </form>
-                <button class="store" type="submit" form="nameform" value="Submit">Submit</button>
+                <button class="store" type="submit" id="store" form="nameform" value="Submit">Submit</button>
             </div>
         </div>
         <div class="grade-save">
